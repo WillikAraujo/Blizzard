@@ -1,0 +1,332 @@
+header{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 9.6rem;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .left-area{
+        display: flex;
+        align-items: center;
+        .logo{
+            position: relative;
+            &::after{
+                content: "";
+                position: absolute;
+                width: 4.3rem;
+                border-top: 2px solid #00AEFF;
+                left: 0;
+                bottom: -29px;
+                }
+            }
+
+        nav{
+            margin-left: 11.2rem;
+            ul{
+                display: flex;
+                align-items: center;
+                li{
+                    &:not(:first-child){
+                        margin-left: 3.4rem;
+                    }
+                    a{
+                        display: flex;
+                        align-items: center;
+                        font-weight: 500;
+                        font-size: 1.4rem;
+                        line-height: 21px;
+                        transition: color .3s;
+                        &.active{
+                            color: $primary-default;
+                            img{
+                                transform: rotate(180deg);
+                            }
+                        }
+                        img{
+                            margin-left: 1.4rem;
+                            transform: rotate(0deg);
+                            transition: all .3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .right-area{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .btn{
+            &:not(:first-child){
+                margin-left: 1.6rem;
+            }
+
+        }
+        .btn-mobile{
+            margin-left: 8.9rem;
+            display: none;
+        }
+    }
+    @media(max-width: 991px){
+        nav{
+            display: none;
+        }
+        .right-area{
+            .btn-mobile{
+                display: block;
+            }
+        }
+    }
+    @media (max-width: 475px) {
+        .right-area{
+            a{
+                display: none;
+            }
+        }      
+        .left-area .logo{
+            max-width: 6.9rem;
+        }  
+    }
+}
+
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: linear-gradient(180deg, #020203 0%, rgba(14, 17, 23, 0.92) 96.35%, rgba(14, 17, 23, 0.9) 100%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    backdrop-filter: blur(12px);
+    width: 100%;
+    padding-top: 9.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s;
+    transform: translateY(-100%);
+    overflow: hidden;   
+
+    &.active{
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0%);
+    }
+    &.esportes{
+        .area-menu{
+            ul{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-gap: 28px 32px;
+                li{
+                    max-width: 17.4rem;
+                    width: 100%;
+                    a{
+                        span{
+                            max-width: 11.5rem;
+                            width: 100%;
+                        }
+                    }
+                    .icon{
+                        max-width: 100%;
+                        height: 14.9rem;
+                        margin-bottom: 2.3rem;
+                    }
+                }
+            }
+        }
+    }
+    .area-menu{
+        padding-top: 3.8rem;
+        padding-bottom: 5.5rem;
+        ul{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 28px 32px;
+            li{
+                max-width: 17.6rem;
+                width: 100%;
+                height: 17.6rem;
+                a{
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    span{
+                        font-weight: 500;
+                        font-size: 1.4rem;
+                        line-height: 120%;
+                        text-align: center;
+                        color: #9D9D9D;
+                        max-width: 10.5rem;
+                        width: 100%;
+                    }
+                    .icon{
+                        display: block;
+                        max-width: 6.9rem;
+                        height: 6.9rem;
+                        margin-bottom: 0.8rem;
+                        img{
+                        width: 100%;
+                    }
+                    }
+                }
+            }
+        }
+    }
+    .footer-menu{
+        max-width: 100%;
+        width: 100%;
+        height: 7rem;
+        background: rgba(21, 23, 27, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul{
+            display: flex;
+            align-items: center;
+            li{
+                &:not(:first-child){
+                    margin-left: 6.4rem;
+                }
+                a{
+                    display: flex;
+                    align-items: center;
+                    .icon{
+                        img{
+                            margin-right: 1rem;
+                        }
+                    }
+                    span{
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                        line-height: 2.4rem;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width:1024px) {
+        .area-menu{
+            ul{
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+    @media (max-width:520px) {
+        .area-menu{
+            ul{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        &.esportes{
+        .area-menu{
+            ul{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+}
+
+.show-menumobile{
+    .menu-mobile{
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0%);
+        transition: all .3s ease;
+    }
+
+}
+.menu-mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2023;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+   .overlay{
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 0;
+       background-color: rgba(0, 0, 0, 0.5);
+   }
+   nav{
+       position: relative;
+       display: flex;
+       background-color: rgba(37, 37, 37, 0.7);
+       width: 40%;
+       height: 100%;
+       z-index: 2024;
+       ul{
+           margin-top: 5rem;
+           width: 100%;
+           .login-menu-mobile{
+            display: none;
+            @media (max-width:475px) {
+                display: block;
+            }
+       }
+           li{
+
+               a{
+                   max-width: 100%;
+                   width: 100%;
+                   font-size: 1.6rem;
+                   padding: 2rem;
+                   display: flex;
+                   justify-content: space-between;
+                   transition: all .3s ease;
+                   &:hover{
+                       background-color: rgba(81, 81, 81, 0.7);
+                   }
+                   &.active{
+                       background-color: rgba(176, 176, 176, 0.7);
+                       img{
+                           transform: rotate(-90deg);
+                           transition: transform .3s ease;
+                       }
+                   }
+                   img{
+                       margin-left: 1rem;
+                       transform: rotate(90deg);
+
+                   }
+
+                   &.btn-outline{
+                        background-color: #FFFFFF;
+                        color: #020203;
+                   }
+                   &.btn-primary{
+                    margin-bottom: 5rem;
+                   }
+               }
+           }
+       }
+   }
+   @media (max-width:520px) {
+    nav{
+    width: 75%;
+
+    }
+   }
+}
+
